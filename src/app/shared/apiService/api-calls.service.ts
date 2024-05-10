@@ -1,6 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Catergoris, Product, Products } from './types/types';
+import {
+  Catergoris,
+  PostingAndPutingType,
+  Product,
+  Products,
+} from './types/types';
 import { HtmlParser } from '@angular/compiler';
 
 @Injectable({
@@ -35,6 +40,11 @@ export class ApiCallsService {
       `https://restaurant.stepprojects.ge/api/Products/GetFiltered?vegeterian=${veg}&nuts=${nuts}&spiciness=${spic}&categoryId=${catId}`
     );
   }
-
+  postingInCart(obj: PostingAndPutingType) {
+    return this.http.post(
+      'https://restaurant.stepprojects.ge/api/Baskets/AddToBasket',
+      obj
+    );
+  }
   constructor(private http: HttpClient) {}
 }

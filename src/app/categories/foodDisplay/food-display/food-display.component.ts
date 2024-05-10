@@ -30,6 +30,22 @@ export class FoodDisplayComponent implements OnInit {
       }
     });
   }
+  onAddCart(item: Product) {
+    this.api
+      .postingInCart({
+        quantity: 1,
+        price: item.price,
+        productId: item.id,
+      })
+      .subscribe({
+        next: (r) => {
+          alert('your item has been added to cart');
+        },
+        error: (e) => {
+          alert('it looks like there is some kind of problem');
+        },
+      });
+  }
   ngOnInit(): void {
     this.updatingCurrentFilter();
     this.state.gettingFilterFormOutput.subscribe((data) => {

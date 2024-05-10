@@ -3,8 +3,11 @@
     <img [src]="items.image" class="card-img-top" alt="..." />
     <div class="card-body">
       <h5 class="card-title">{{ items.name }}</h5>
-      <p>spiciness {{ items.spiciness }}</p>
-      <a class="btn btn-primary">Add To Cart</a>
+      <p>
+        spiciness {{ items.spiciness }}: <br />Price
+        {{ items.price | currency : "USD" }}
+      </p>
+      <a class="btn btn-primary" (click)="onAddCart(items)">Add To Cart</a>
     </div>
   </div>
 </main>
