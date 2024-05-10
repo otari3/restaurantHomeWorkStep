@@ -32,5 +32,8 @@ export class FoodDisplayComponent implements OnInit {
   }
   ngOnInit(): void {
     this.updatingCurrentFilter();
+    this.state.gettingFilterFormOutput.subscribe((data) => {
+      this.products = data;
+    });
   }
 }

@@ -1,0 +1,21 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.formStyling {
+  width: 207px;
+  height: 390px;
+  background-color: #f1f1f1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  div {
+    display: flex;
+    gap: 5px;
+  }
+  button {
+    padding: 5px;
+  }
+}

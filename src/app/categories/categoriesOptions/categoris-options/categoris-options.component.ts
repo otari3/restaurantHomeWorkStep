@@ -35,7 +35,6 @@ export class CategorisOptionsComponent implements OnInit {
     this.state.gettingCurentFilter.subscribe((data: number | string) => {
       this.currentFilter = data;
       this.cd.detectChanges();
-      console.log(data);
     });
   }
 }

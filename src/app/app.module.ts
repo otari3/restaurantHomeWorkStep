@@ -9,6 +9,7 @@ import { FoodFilterComponent } from './categories/categoriesOptions/categoris-op
 import { FoodDisplayComponent } from './categories/foodDisplay/food-display/food-display.component';
 import { CartComponent } from './cart/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,13 @@ import { HttpClientModule } from '@angular/common/http';
     FoodDisplayComponent,
     CartComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
