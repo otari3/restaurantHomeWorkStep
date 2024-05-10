@@ -1,1 +1,10 @@
-<h1>categoris</h1>
+<main>
+  <h1>categoris</h1>
+  <ul>
+    <li (click)="navigatingToChild('all')"><button>all</button></li>
+    <li *ngFor="let items of allCategoris">
+      <button (click)="navigatingToChild(items.id)">{{ items.name }}</button>
+    </li>
+  </ul>
+  <router-outlet></router-outlet>
+</main>
