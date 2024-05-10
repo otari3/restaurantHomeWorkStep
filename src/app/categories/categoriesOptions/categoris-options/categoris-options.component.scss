@@ -35,3 +35,9 @@ main {
   background-color: red !important;
   color: white !important;
 }
+.stylingchild {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 20px;
+}
