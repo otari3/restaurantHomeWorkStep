@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CategorisOptionsComponent } from './categories/categoriesOptions/categoris-options/categoris-options.component';
 import { FoodDisplayComponent } from './categories/foodDisplay/food-display/food-display.component';
+import { CartComponent } from './cart/cart/cart.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'categoris', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
       },
     ],
   },
+  { path: 'cart', component: CartComponent },
 ];
 
 @NgModule({

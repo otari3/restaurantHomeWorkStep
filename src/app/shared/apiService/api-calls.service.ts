@@ -46,5 +46,21 @@ export class ApiCallsService {
       obj
     );
   }
+  gettingAllInCart() {
+    return this.http.get(
+      'https://restaurant.stepprojects.ge/api/Baskets/GetAll'
+    );
+  }
+  updatingBustket(obj: PostingAndPutingType) {
+    return this.http.put(
+      'https://restaurant.stepprojects.ge/api/Baskets/UpdateBasket',
+      obj
+    );
+  }
+  deletingFromCart(id: number) {
+    return this.http.delete(
+      `https://restaurant.stepprojects.ge/api/Baskets/DeleteProduct/${id}`
+    );
+  }
   constructor(private http: HttpClient) {}
 }

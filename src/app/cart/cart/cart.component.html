@@ -1,1 +1,32 @@
-<p>cart works!</p>
+<main>
+  <section *ngFor="let items of cart; let i = index">
+    <div class="imgAndName">
+      <img [src]="items.product.image" alt="" />
+      <p>{{ items.product.name }}</p>
+    </div>
+    <div class="qt">
+      <div>
+        <button (click)="addingToTotal(items)"><p>+</p></button>
+        <p>{{ items.quantity }}</p>
+        <button (click)="removeingFromTotal(items)"><p>-</p></button>
+      </div>
+    </div>
+    <div class="price">
+      <p class="priceName">Price</p>
+      <p>{{ items.product.price }}</p>
+    </div>
+    <div class="price">
+      <p class="priceName">total</p>
+      <p>{{ items.quantity * items.price }}</p>
+    </div>
+    <div>
+      <button
+        class="btn btn-danger"
+        style="padding: 2px"
+        (click)="delet(i, items)"
+      >
+        X
+      </button>
+    </div>
+  </section>
+</main>
