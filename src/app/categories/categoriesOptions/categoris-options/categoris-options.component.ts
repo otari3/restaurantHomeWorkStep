@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ApiCallsService } from '../../../shared/apiService/api-calls.service';
 import { Catergoris } from '../../../shared/apiService/types/types';
 import { ActivatedRoute, Router } from '@angular/router';
+import { HandelingStateService } from '../../../shared/handelingState/handeling-state.service';
 
 @Component({
   selector: 'app-categoris-options',
@@ -12,9 +13,12 @@ export class CategorisOptionsComponent implements OnInit {
   constructor(
     private api: ApiCallsService,
     private route: Router,
-    private activRoute: ActivatedRoute
+    private activRoute: ActivatedRoute,
+    private state: HandelingStateService,
+    private cd: ChangeDetectorRef
   ) {}
   allCategoris!: Catergoris[];
+  currentFilter!: number | string;
   gettingCategoris() {
     this.api.gettingAllCategoris().subscribe((data: Catergoris[]) => {
       this.allCategoris = data;
@@ -28,5 +32,10 @@ export class CategorisOptionsComponent implements OnInit {
       this.route.navigate(['all'], { relativeTo: this.activRoute });
     }
     this.gettingCategoris();
+    this.state.gettingCurentFilter.subscribe((data: number | string) => {
+      this.currentFilter = data;
+      this.cd.detectChanges();
+      console.log(data);
+    });
   }
 }
